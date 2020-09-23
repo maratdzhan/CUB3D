@@ -43,6 +43,8 @@ void			init(char *carg, int param);
 void			create_environment(char *carg, int param);
 void			build_environment(char *carg, int param);
 
+int				parse_config(char *argc);
+
 char			*error(char *line);
 char			*join_line(char *line, char *buf);
 char			*trim_line(char *line);

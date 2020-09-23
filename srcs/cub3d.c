@@ -14,7 +14,8 @@
 
 void	build_environment(char *carg, int param)
 {
-	parse_map(*carg);
+	if (parse_config(*carg))
+		return(write(2,'SOME ERROR TILL PARSING\n', 24));
 }
 
 void	create_environment(char *carg, int param)
