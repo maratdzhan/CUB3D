@@ -14,18 +14,29 @@
 
 void	build_environment(char *carg, int param)
 {
-	if (parse_config(*carg))
-		return(write(2,'SOME ERROR TILL PARSING\n', 24));
+	param = 0;// blanket
+	if (parse_config(carg))
+	{
+		write(1,"SOME ERROR TILL PARSING\n", 24);
+		return;
+	}
 }
 
 void	create_environment(char *carg, int param)
 {
+	ft_strlen(carg);
 	build_environment(carg, param);
 }
 
 void	init(char *carg, int param)
 {
-	create_environment
+	if (param == 1)
+		ft_log("with save", 0);
+	else
+		ft_log("without saving",0);
+	ft_log("used argument parameter:",0);
+	ft_log(carg,1);
+	create_environment(carg, param);
 }
 
 int		main(int argc, char **args)
@@ -35,6 +46,6 @@ int		main(int argc, char **args)
 	else if (argc == 2)
 		init(args[1], 0);
 	else
-		write(2, "IAC. Terminating\n", 17); 
+		write(2, "Invlid Arguments Count. Terminating\n", 36); 
 	return (0);
 }

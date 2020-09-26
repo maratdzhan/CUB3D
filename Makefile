@@ -24,6 +24,9 @@ HEADER = cub3d.h
 
 SRC = cub3d \
 	  gnl \
+	  log \
+	  parsing \
+	  tools \
 #	  parse \
 	  parse_map \
 	  parse_tools \
@@ -33,7 +36,6 @@ SRC = cub3d \
 	  screen_col \
 	  sprite \
 	  bitmap \
-	  tools \
 
 all: $(NAME)
 

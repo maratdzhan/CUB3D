@@ -37,7 +37,14 @@ typedef struct	s_mlx
 	void			*ptr;
 }				t_mlx;
 
-#endif
+int				ft_strlen(char *s);
+
+int				ft_is_save(char *arg);
+
+void			ft_log(char *value, int vtype);
+int				ft_errors(int eType, char *value);
+
+int				ft_strncmp(char *s1, char *s2, int n);
 
 void			init(char *carg, int param);
 void			create_environment(char *carg, int param);
@@ -49,7 +56,7 @@ char			*error(char *line);
 char			*join_line(char *line, char *buf);
 char			*trim_line(char *line);
 char			*get_line(char *line);
-int				check_err_line(char *line, int buf_size);
-int				get_next_line(int fd, char *line);
+int				check_newline(char *line, int buf_size);
+int				get_next_line(int fd, char **line);
 
-# endif
+#endif
