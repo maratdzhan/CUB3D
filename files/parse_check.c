@@ -6,7 +6,7 @@
 /*   By: iunity <iunity@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/02 17:16:06 by iunity            #+#    #+#             */
-/*   Updated: 2020/10/29 03:06:58 by iunity           ###   ########.fr       */
+/*   Updated: 2020/10/29 22:46:05 by iunity           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,14 @@ int		ft_mapcheck(t_core *s)
 	res = 0;
 	res = ft_map_leveling(s->map.tab, s->map.y, s->map.x_max);
 	if (res < 0)
-		return ft_strerror(res);
+		return (ft_strerror(res));
 	else
 	{
 		res = ft_map_wall_check(s->map.tab, s->map.y, s->map.x_max);
 		if (res < 0)
-			return ft_strerror(res);
+			return (ft_strerror(res));
 	}
 	ft_rebuild_map(s);
-		print_map(s);
-
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: iunity <iunity@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/09 19:37:22 by iunity            #+#    #+#             */
-/*   Updated: 2020/10/29 03:07:34 by iunity           ###   ########.fr       */
+/*   Updated: 2020/10/29 22:48:07 by iunity           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 unsigned int	ft_pixel(t_core *s, double i)
 {
 	int	index;
+
 	if (floor(s->hit.y) == s->hit.y)
 	{
 		index = 64 * floor(64 * i) + 64 * (s->hit.x - floor(s->hit.x));

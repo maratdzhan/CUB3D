@@ -6,7 +6,7 @@
 /*   By: iunity <iunity@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 21:41:46 by iunity            #+#    #+#             */
-/*   Updated: 2020/10/29 03:07:06 by iunity           ###   ########.fr       */
+/*   Updated: 2020/10/29 22:46:59 by iunity           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int		ft_smaplen(t_core *s, char *line)
 	count = 0;
 	while (line[count] != '\0')
 	{
-		if (ft_strchr("NEWS 012",line[count]))
+		if (ft_strchr("NEWS 012", line[count]))
 			count++;
 		else
 			return (-1);
@@ -85,7 +85,7 @@ char	*ft_smap(t_core *s, char *line, int *i)
 	(*i) = 0;
 	while (line[*i] != '\0')
 	{
-		if (ft_strchr("NEWS 012",line[*i]))
+		if (ft_strchr("NEWS 012", line[*i]))
 		{
 			if (line[*i] == '2')
 				s->map.spr++;

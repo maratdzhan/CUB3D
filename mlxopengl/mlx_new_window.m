@@ -764,3 +764,33 @@ int     mlx_destroy_window(mlx_ptr_t *mlx_ptr, mlx_win_list_t *win_to_del)
   mlx_do_sync(mlx_ptr);
   return (0);
 }
+
+int   mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey)
+{
+    NSRect rect = [ [NSScreen mainScreen] frame];
+    *sizex = (int)rect.size.width;
+    *sizey = (int)rect.size.height;
+    return (0);
+}
+
+
+void	print_map(const char **tab, int x_max, int y_max)
+{
+	int i;
+	int j;
+
+	i = 0;
+	printf("%d && %d\n", x_max, y_max);
+	while (i < y_max)
+	{
+		j = 0;
+		printf(">>");
+		while (j < x_max)
+		{
+			printf("%c", tab[i][j]);
+			j++;
+		}
+		printf("<<\n");
+		i++;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: iunity <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/29 03:05:50 by iunity            #+#    #+#             */
-/*   Updated: 2020/10/29 03:05:56 by iunity           ###   ########.fr       */
+/*   Updated: 2020/10/29 22:47:56 by iunity           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ int		ft_strerror(int err)
 	(err == -21) ? write(2, "Error : Bad wall (1)\n", 21) : 0;
 	(err == -22) ? write(2, "Error : Bad wall (2)\n", 21) : 0;
 	(err == -23) ? write(2, "Error : Bad wall (3)\n", 21) : 0;
-	
 	return (-1);
 }

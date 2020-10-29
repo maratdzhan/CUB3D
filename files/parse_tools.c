@@ -6,7 +6,7 @@
 /*   By: iunity <iunity@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 21:41:51 by iunity            #+#    #+#             */
-/*   Updated: 2020/10/29 03:07:12 by iunity           ###   ########.fr       */
+/*   Updated: 2020/10/29 22:46:53 by iunity           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 int		ft_res(t_core *s, char *line, int *i)
 {
+	int		px;
+	int		py;
+
 	if (s->win.x != 0 || s->win.y != 0)
 		return (-3);
 	(*i)++;
 	s->win.x = ft_atoi(line, i);
 	s->win.y = ft_atoi(line, i);
-	if (s->win.x > 2560)
-		s->win.x = 2560;
-	if (s->win.y > 1400)
-		s->win.y = 1400;
+	mlx_get_screen_size(s->mlx.ptr, &px, &py);
+	if (s->win.x > px)
+		s->win.x = px;
+	if (s->win.y > py)
+		s->win.y = py;
 	ft_skipspaces(line, i);
 	if (s->win.x <= 0 || s->win.y <= 0 || line[*i] != '\0')
 		return (-4);

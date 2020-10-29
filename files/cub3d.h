@@ -6,7 +6,7 @@
 /*   By: iunity <iunity@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/04 15:00:09 by iunity            #+#    #+#             */
-/*   Updated: 2020/10/29 03:05:40 by iunity           ###   ########.fr       */
+/*   Updated: 2020/10/29 22:47:40 by iunity           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ int				ft_mapcheck(t_core *s);
 int				ft_savecheck(char *arg, char *save);
 int				ft_namecheck(char *arg, char *ext);
 
-int     		ft_map_wall_check(char **map, int maplen, int max);
+int				ft_map_wall_check(char **map, int maplen, int max);
 char			*ft_map_addspace(char *str, int len, int max);
 int				ft_map_leveling(char **map, int maplen, int max);
 void			ft_rebuild_map(t_core *s);
@@ -197,6 +197,5 @@ char			*ft_strcpy(char *dst, const char *src);
 size_t			ft_strlen(const char *str);
 
 int				ft_strerror(int err);
-void	print_map(t_core *s);
 
 #endif

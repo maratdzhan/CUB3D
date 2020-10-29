@@ -1,4 +1,4 @@
-R  1500 1500
+R  15000 15000
 NO ./textures/brick.xpm
 SO ./textures/wall_1.xpm
 WE ./textures/wood.xpm

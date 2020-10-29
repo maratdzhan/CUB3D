@@ -6,7 +6,7 @@
 /*   By: iunity <iunity@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 18:01:54 by iunity            #+#    #+#             */
-/*   Updated: 2020/10/29 03:07:50 by iunity           ###   ########.fr       */
+/*   Updated: 2020/10/29 22:46:24 by iunity           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strchr(const char *str, int arg)
 	return (NULL);
 }
 
-size_t				ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t			size;
 
@@ -38,7 +38,7 @@ size_t				ft_strlen(const char *str)
 	return (size);
 }
 
-int		ft_skipspaces(char *line, int *i) // LTRIM
+int		ft_skipspaces(char *line, int *i)
 {
 	while ((line[*i] == ' ' || line[*i] == '\t' || line[*i] == '\n')
 	|| (line[*i] == '\r' || line[*i] == '\v' || line[*i] == '\f'))
@@ -60,7 +60,7 @@ int		ft_atoi(char *line, int *i)
 	return (num);
 }
 
-char			*ft_strcpy(char *dst, const char *src)
+char	*ft_strcpy(char *dst, const char *src)
 {
 	size_t		i;
 

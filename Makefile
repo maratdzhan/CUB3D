@@ -31,7 +31,7 @@ OBJ = $(FIL:.c=.o)
 
 BIN = $(addsuffix .o, $(SRC))
 
-.PHONY: all clean fclean re bonus test sqr bmp err inv norm
+.PHONY: all clean fclean re norm
 
 all: $(NAME)
 
@@ -57,4 +57,4 @@ bmp: re
 	./$(NAME) maps/map.cub --save
 
 norm:
-	norminette $(FIL) $(B_FIL) files/$(HEADER) bonus/$(B_HEADER)
+	norminette $(FIL) $(B_FIL) files/$(HEADER)
