@@ -12,13 +12,30 @@
 
 #include "cub3d.h"
 
-int		ft_line(t_core *s, char *line)
+int		ft_initial_validate(t_core *s, char *line)
 {
-	int		i;
+	int		as;
 
-	i = 0;
+	as = 0;
+	ft_skipspaces(line, &as);
+	if (s->map.parse_st == 2)
+		return (1);
+	if (as == (int)ft_strlen(line))
+	{
+		if (s->map.parse_st == 1)
+		{
+			s->map.parse_st = 2;
+		}
+	}
+	return (0);
+}
+
+int		ft_line(t_core *s, char *line, int i)
+{
 	ft_skipspaces(line, &i);
-	if ((line[i] == '1' || s->err.m == 1) && line[i] != '\0')
+	if (ft_initial_validate(s, line))
+		s->err.n = 0;
+	else if ((line[i] == '1' || s->err.m == 1) && line[i] != '\0')
 		s->err.n = ft_map(s, line, &i);
 	else if (line[i] == 'R' && line[i + 1] == ' ')
 		s->err.n = ft_res(s, line, &i);
@@ -32,9 +49,9 @@ int		ft_line(t_core *s, char *line)
 		s->err.n = ft_texture(s, &s->tex.e, line, &i);
 	else if (line[i] == 'S' && line[i + 1] == ' ')
 		s->err.n = ft_texture(s, &s->tex.sprite, line, &i);
-	else if (line[i] == 'F' && line[i + 1] == ' ')
+	else if (line[i] == 'F' && line[i + 1] == ' ' && !s->map.parse_st)
 		s->err.n = ft_colors(&s->tex.f, line, &i);
-	else if (line[i] == 'C' && line[i + 1] == ' ')
+	else if (line[i] == 'C' && line[i + 1] == ' ' && !s->map.parse_st)
 		s->err.n = ft_colors(&s->tex.c, line, &i);
 	if (ft_skipspaces(line, &i) && s->err.n == 0 && line[i] != '\0')
 		return (ft_strerror(-10));
@@ -83,7 +100,7 @@ int		ft_parse(t_core *s, char *cub)
 	while (ret == 1)
 	{
 		ret = get_next_line(fd, &line);
-		if (ft_line(s, line) == -1)
+		if (ft_line(s, line, 0) == -1)
 			ret = -1;
 		free(line);
 	}

@@ -17,7 +17,7 @@ int		ft_res(t_core *s, char *line, int *i)
 	int		px;
 	int		py;
 
-	if (s->win.x != 0 || s->win.y != 0)
+	if (s->win.x != 0 || s->win.y != 0 || s->map.parse_st > 0)
 		return (-3);
 	(*i)++;
 	s->win.x = ft_atoi(line, i);
@@ -43,9 +43,13 @@ int		ft_colors(unsigned int *color, char *line, int *i)
 		return (-5);
 	(*i)++;
 	r = ft_atoi(line, i);
+	ft_skipspaces(line, i);
 	(*i)++;
+	ft_skipspaces(line, i);
 	g = ft_atoi(line, i);
+	ft_skipspaces(line, i);
 	(*i)++;
+	ft_skipspaces(line, i);
 	b = ft_atoi(line, i);
 	ft_skipspaces(line, i);
 	if (line[*i] != '\0' || r > 255 || g > 255 || b > 255)

@@ -772,25 +772,3 @@ int   mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey)
     *sizey = (int)rect.size.height;
     return (0);
 }
-
-
-void	print_map(const char **tab, int x_max, int y_max)
-{
-	int i;
-	int j;
-
-	i = 0;
-	printf("%d && %d\n", x_max, y_max);
-	while (i < y_max)
-	{
-		j = 0;
-		printf(">>");
-		while (j < x_max)
-		{
-			printf("%c", tab[i][j]);
-			j++;
-		}
-		printf("<<\n");
-		i++;
-	}
-}

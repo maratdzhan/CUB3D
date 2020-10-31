@@ -36,6 +36,8 @@ int		ft_texture(t_core *s, unsigned int **adr, char *line, int *i)
 	char	*file;
 	int		j;
 
+	if (s->map.parse_st)
+		return (-10);
 	if (*adr != NULL)
 		return (-7);
 	(*i) += 2;
@@ -107,7 +109,9 @@ int		ft_map(t_core *s, char *line, int *i)
 	char	**tmp;
 	int		j;
 
-	s->err.m = 1;
+	if (s->map.parse_st == 2)
+		return (-24);
+	s->map.parse_st = 1;
 	if (!(tmp = malloc(sizeof(char *) * (s->map.y + 2))))
 		return (-11);
 	j = -1;

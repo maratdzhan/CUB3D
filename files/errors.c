@@ -37,5 +37,6 @@ int		ft_strerror(int err)
 	(err == -21) ? write(2, "Error : Bad wall (1)\n", 21) : 0;
 	(err == -22) ? write(2, "Error : Bad wall (2)\n", 21) : 0;
 	(err == -23) ? write(2, "Error : Bad wall (3)\n", 21) : 0;
+	(err == -24) ? write(2, "Error : Empty line in map\n", 26) : 0;
 	return (-1);
 }

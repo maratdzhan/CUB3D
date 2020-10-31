@@ -31,14 +31,17 @@ OBJ = $(FIL:.c=.o)
 
 BIN = $(addsuffix .o, $(SRC))
 
-.PHONY: all clean fclean re norm
+.PHONY: all clean fclean re mlx
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) mlx
 	@echo "\n\033[0;33mCompiling..."
 	$(CC) -o $(NAME) -L $(MLX) $(LXFLAGS) $(OBJ)
 	@echo "\033[0m"
+
+mlx:
+	$(MAKE) -C ./$(MLX)
 
 clean:
 	@echo "\033[0;31mCleaning..."
@@ -52,9 +55,3 @@ fclean: clean
 	@echo "\033[0m"
 
 re: fclean all
-
-bmp: re
-	./$(NAME) maps/map.cub --save
-
-norm:
-	norminette $(FIL) $(B_FIL) files/$(HEADER)

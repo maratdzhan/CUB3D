@@ -32,7 +32,7 @@
 # define LEFT 123
 # define RIGHT 124
 
-# define SPEED 15
+# define SPEED 55
 # define TURN 0.15
 
 typedef struct	s_mlx
@@ -67,6 +67,7 @@ typedef struct	s_map
 	int				x_max;
 	int				y;
 	int				spr;
+	int				parse_st;
 }				t_map;
 
 typedef struct	s_tex
@@ -132,7 +133,7 @@ void			ft_draw(t_core *s);
 
 int				ft_parse(t_core *s, char *cub);
 int				get_next_line(int fd, char **line);
-int				ft_line(t_core *s, char *line);
+int				ft_line(t_core *s, char *line, int i);
 
 int				ft_map(t_core *s, char *line, int *i);
 char			*ft_smap(t_core *s, char *line, int *i);

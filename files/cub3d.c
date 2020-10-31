@@ -29,8 +29,6 @@ void	ft_draw(t_core *s)
 	s->hit = hit;
 	ft_screen(s);
 	mlx_put_image_to_window(s->mlx.ptr, s->win.ptr, s->img.ptr, 0, 0);
-	free(s->img.ptr);
-	free(s->img.adr);
 }
 
 int		ft_cubed(t_core s, char *cub, int bmp)
@@ -76,6 +74,7 @@ void	ft_declare(t_core s, char *cub, int bmp)
 	map.y = 0;
 	map.x_max = 0;
 	map.spr = 0;
+	map.parse_st = 0;
 	tex.c = NONE;
 	tex.f = NONE;
 	s.map = map;

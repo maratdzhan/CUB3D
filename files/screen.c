@@ -84,12 +84,18 @@ void	ft_hor(t_core *s)
 
 void	ft_screen(t_core *s)
 {
-	int		bpp;
-	int		sl;
-	int		end;
+	int				bpp;
+	int				sl;
+	int				end;
+	static char		init;
 
-	s->img.ptr = mlx_new_image(s->mlx.ptr, s->win.x, s->win.y);
-	s->img.adr = (unsigned int *)mlx_get_data_addr(s->img.ptr, &bpp, &sl, &end);
+	if (!init)
+	{
+		s->img.ptr = mlx_new_image(s->mlx.ptr, s->win.x, s->win.y);
+		s->img.adr = (unsigned int *)mlx_get_data_addr(s->img.ptr,
+		&bpp, &sl, &end);
+		init = !init;
+	}
 	s->stk = malloc(sizeof(t_hit) * s->win.x);
 	while (s->ray.i < s->win.x)
 	{
