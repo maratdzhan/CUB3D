@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
 int		ft_res(t_core *s, char *line, int *i)
 {
 	int		px;
@@ -44,12 +43,14 @@ int		ft_colors(unsigned int *color, char *line, int *i)
 	(*i)++;
 	r = ft_atoi(line, i);
 	ft_skipspaces(line, i);
+	if (line[*i] != ',')
+		return (-6);
 	(*i)++;
-	ft_skipspaces(line, i);
 	g = ft_atoi(line, i);
 	ft_skipspaces(line, i);
+	if (line[*i] != ',')
+		return (-6);
 	(*i)++;
-	ft_skipspaces(line, i);
 	b = ft_atoi(line, i);
 	ft_skipspaces(line, i);
 	if (line[*i] != '\0' || r > 255 || g > 255 || b > 255)

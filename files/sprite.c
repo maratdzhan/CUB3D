@@ -14,23 +14,11 @@
 
 unsigned int	ft_spixel(t_core *s, int index, unsigned int col)
 {
-	int	t;
-	int	r;
-	int	g;
-	int	b;
-
 	if (col >= NONE)
 		return (s->img.adr[index]);
 	else if (col < 256 * 256 * 256)
 		return (col);
-	t = col / (256 * 256 * 256);
-	r = (col / (256 * 256) % 256) * (1 - (double)t / 256.);
-	g = (col / 256 % 256) * (1 - (double)t / 256.);
-	b = (col % 256) * (1 - (double)t / 256);
-	r += (s->img.adr[index] / (256 * 256) % 256) * ((double)t / 256.);
-	g += (s->img.adr[index] / 256 % 256) * ((double)t / 256.);
-	b += (s->img.adr[index] % 256) * ((double)t / 256.);
-	return (r * 256 * 256 + g * 256 + b);
+	return (0);
 }
 
 void			ft_sdraw(t_core *s, int loc, double dist)
